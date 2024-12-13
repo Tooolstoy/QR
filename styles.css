@@ -12,20 +12,50 @@ body {
 
 #qr-reader {
     margin: 20px auto;
+    max-width: 100%; /* Ограничиваем максимальную ширину для адаптивности */
 }
 
 #qr-result {
     margin-top: 20px;
     font-size: 18px;
+    color: #333; /* Добавляем цвет текста для лучшей читаемости */
+}
+
+#video {
+    width: 100%; /* Занимает всю доступную ширину */
+    max-width: 400px; /* Максимальная ширина окна камеры */
+    height: auto; /* Автоматически подстраивает высоту */
+    border: 2px solid #ccc; /* Добавляем рамку */
+    border-radius: 10px; /* Скругляем углы */
+    display: block; /* Убираем лишние отступы */
+    margin: 0 auto; /* Центрируем видео */
 }
 
 #animated-image img {
     width: 300px;
     height: auto;
     animation: fadeIn 2s;
+    display: none; /* Изначально скрываем изображение */
 }
 
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+/* Адаптивность для экранов шириной до 600px */
+@media (max-width: 600px) {
+    .container {
+        margin-top: 20px;
+    }
+
+    #video {
+        width: 100%;
+        height: auto;
+    }
+
+    #animated-image img {
+        width: 100%;
+        height: auto;
+    }
 }
