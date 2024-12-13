@@ -6,16 +6,22 @@ const animatedImage = document.getElementById('animated-image').querySelector('i
 
 // Функция для захвата видео с камеры
 function startVideo() {
-    navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
-        .then(function(stream) {
-            video.srcObject = stream;
-            video.play();
-            requestAnimationFrame(tick);
-        })
-        .catch(function(err) {
-            console.error("Error accessing camera: ", err);
-            qrResult.innerText = "Camera access denied or not available.";
-        });
+    navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode: "environment", // Используем заднюю камеру
+            width: { ideal: 640 }, // Желаемая ширина видео
+            height: { ideal: 480 } // Желаемая высота видео
+        }
+    })
+    .then(function(stream) {
+        video.srcObject = stream;
+        video.play();
+        requestAnimationFrame(tick);
+    })
+    .catch(function(err) {
+        console.error("Error accessing camera: ", err);
+        qrResult.innerText = "Camera access denied or not available.";
+    });
 }
 
 // Функция для обработки кадра видео
