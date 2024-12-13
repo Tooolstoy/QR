@@ -25,7 +25,9 @@ function tick() {
         canvas.width = video.videoWidth;
         ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
         const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-        const code = jsQR(imageData.data, imageData.width, imageData.height);
+        const code = jsQR(imageData.data, imageData.width, imageData.height, {
+            inversionAttempts: "attemptBoth" // Улучшение распознавания
+        });
         if (code) {
             qrResult.innerText = "QR Code Detected: " + code.data;
             showAnimatedImage();
