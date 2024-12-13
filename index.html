@@ -10,13 +10,10 @@
     <div class="container">
         <h1>QR Code Reader</h1>
         <div id="qr-reader">
-            <video id="video" width="300" height="200" autoplay playsinline></video>
-            <canvas id="qr-canvas" style="display:none;"></canvas>
+            <video id="video" width="300" height="200" autoplay playsinline></video> <!-- Видео с камеры -->
+            <canvas id="qr-canvas" style="display:none;"></canvas> <!-- Скрытый canvas для обработки QR-кода -->
         </div>
         <div id="qr-result"></div> <!-- Текст результата распознавания QR-кода -->
-        <div id="animated-image">
-            <img src="animated-image.gif" alt="Animated Image" style="display:none;"> <!-- Оживающая картинка -->
-        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script> <!-- Подключение библиотеки jsQR -->
     <script src="script.js"></script> <!-- Подключение JavaScript -->
