@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QR Code Reader</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>QR Code Reader</h1>
+        <div id="qr-reader">
+            <video id="video" width="300" height="200" autoplay></video>
+            <canvas id="qr-canvas" style="display:none;"></canvas>
+        </div>
+        <div id="qr-result"></div>
+        <div id="animated-image">
+            <img src="animated-image.gif" alt="Animated Image" style="display:none;">
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
