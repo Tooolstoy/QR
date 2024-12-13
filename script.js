@@ -2,7 +2,8 @@ const video = document.getElementById('video');
 const canvas = document.getElementById('qr-canvas');
 const ctx = canvas.getContext('2d');
 const qrResult = document.getElementById('qr-result');
-const animatedImage = document.getElementById('animated-image').querySelector('img');
+const animatedImage = document.createElement('img'); // Создаём элемент изображения
+animatedImage.src = 'animated-image.gif'; // Указываем путь к изображению
 
 // Функция для захвата видео с камеры
 function startVideo() {
@@ -37,6 +38,7 @@ function tick() {
         if (code) {
             qrResult.innerText = "QR Code Detected: " + code.data;
             showAnimatedImage();
+            stopVideo(); // Останавливаем видео после распознавания QR-кода
         } else {
             qrResult.innerText = "No QR Code detected";
         }
@@ -46,7 +48,18 @@ function tick() {
 
 // Функция для отображения оживающей картинки
 function showAnimatedImage() {
-    animatedImage.style.display = 'block';
+    video.replaceWith(animatedImage); // Заменяем видео на изображение
+    animatedImage.style.display = 'block'; // Отображаем изображение
+}
+
+// Функция для остановки видео
+function stopVideo() {
+    const stream = video.srcObject;
+    if (stream) {
+        const tracks = stream.getTracks();
+        tracks.forEach(track => track.stop());
+        video.srcObject = null;
+    }
 }
 
 // Запуск видео
