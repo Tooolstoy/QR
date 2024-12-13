@@ -10,8 +10,8 @@
     <div class="container">
         <h1>QR Code Reader</h1>
         <div id="qr-reader">
-            <video id="video" width="300" height="200" autoplay></video> <!-- Видео с камеры -->
-            <canvas id="qr-canvas" style="display:none;"></canvas> <!-- Скрытый canvas для обработки QR-кода -->
+            <video id="video" width="300" height="200" autoplay playsinline></video>
+            <canvas id="qr-canvas" style="display:none;"></canvas>
         </div>
         <div id="qr-result"></div> <!-- Текст результата распознавания QR-кода -->
         <div id="animated-image">
