@@ -86,3 +86,4 @@ function showAnimatedImage() {
 }
 
 startVideo();
+<script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.js"></script>
